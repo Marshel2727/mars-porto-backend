@@ -5,11 +5,11 @@ from app.service.auth_service import register_user,verify_login
 auth_bp = Blueprint('auth_bp', __name__, url_prefix=('/api/auth'))
 
 @auth_bp.route('/register', methods=['POST'])
-@jwt_required()
+#@jwt_required()
 def register():
-    claims = get_jwt()
-    if claims.get('role') != 'admin':
-        return jsonify({"status": "error", "message": "Akses ditolak! Hanya admin yang bisa membuat akun baru."}), 403
+#    claims = get_jwt()
+#    if claims.get('role') != 'admin':
+#       return jsonify({"status": "error", "message": "Akses ditolak! Hanya admin yang bisa membuat akun baru."}), 403
 
     data = request.get_json()
 
