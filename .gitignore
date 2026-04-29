@@ -1,0 +1,13 @@
+# Mengabaikan file rahasia
+.env
+
+# Mengabaikan environment Python
+venv/
+__pycache__/
+*.pyc
+
+# Mengabaikan isi folder upload tapi tetap track folder-nya
+app/static/uploads/projects/*
+app/static/uploads/skills/*
+!app/static/uploads/projects/.gitkeep
+!app/static/uploads/skills/.gitkeep
