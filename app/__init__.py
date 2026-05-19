@@ -27,6 +27,7 @@ def create_app():
     from .models.user import User
     from .models.skill import Skill
     from .models.message import Message
+    from .models.project_image import ProjectImage
 
     from .routes.project_routes import project_bp
     app.register_blueprint(project_bp)
@@ -39,5 +40,8 @@ def create_app():
 
     from .routes.message_routes import message_bp
     app.register_blueprint(message_bp)
+
+    from .routes.project_image_routes import project_image_bp
+    app.register_blueprint(project_image_bp)
 
     return app
