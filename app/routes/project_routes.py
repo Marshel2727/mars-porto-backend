@@ -36,6 +36,7 @@ def add_project():
         return error_response(message='Akses ditolak! Hanya admin yang boleh mengakses.', status_code=403)
     
     title = request.form.get('title')
+    sub_title = request.form.get('sub_title')
     description = request.form.get('description')
     demo_url = request.form.get('demo_url')
     github_url = request.form.get('github_url')
@@ -55,6 +56,7 @@ def add_project():
 
     data = {
         'title':title,
+        'sub_title': sub_title,
         'description': description,
         'demo_url': demo_url,
         'github_url': github_url,
@@ -75,7 +77,7 @@ def edit_project(id):
     if not old_project:
         return error_response(message='Project tidak ditemukan', status_code=404)
 
-    allowed_keys = ['title', 'description', 'demo_url', 'github_url']
+    allowed_keys = ['title', 'sub_title', 'description', 'demo_url', 'github_url']
 
     data = {key: value for key, value in request.form.items() if key in allowed_keys and value}
 
