@@ -13,7 +13,12 @@ jwt = JWTManager()
 def create_app():
     app = Flask(__name__)
 
-    CORS(app, origins=os.getenv('FRONTEND_URL', 'http://localhost:3000').split(','))
+    frontend_origins = [url.strip() for url in os.getenv('FRONTEND_URL', 'http://localhost:3000').split(',')]
+    CORS(app,
+         origins=frontend_origins,
+         supports_credentials=True,
+         allow_headers=["Content-Type", "Authorization"],
+         methods=["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"])
 
     app.config.from_object(Config)
     #fungsi ini di panggil untuk test koneksi data base
